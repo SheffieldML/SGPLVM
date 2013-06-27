@@ -1,0 +1,111 @@
+<head>
+<title>Shared Gaussian Process Latent Variable Models - MATLAB Software</title>
+</head>
+
+<body><div class="section">
+
+<h1>Shared GP-LVM Software</h1>
+
+<p>This page describes examples of how to use the Gaussian process latent variable models with shared latent spaces (SGPLVM).
+
+RELEASEINFORMATION
+
+<h2>Release Notes</h2>
+
+<h3>Current Release</h3>
+
+Updated release with FOLS model from AISTATS 2010 added.
+
+<h4>Version 0.05</h4>
+
+First release of software.
+
+<h2>Examples</h2>
+
+
+
+<h3>SGP-LVM</h3>
+
+
+
+<p><code>
+
+&gt;&gt; demSgplvm
+
+</code>
+
+<br>
+
+<br>
+
+Demo script to create three different types of Shared GP-LVM models
+
+either using random data or a synthetic example of human motion.
+
+
+
+<p><code>
+
+&gt;&gt; sgplvm_model_type = 'mlmi2008';<br>
+
+&gt;&gt; data_type = 'human';
+
+</code>
+
+<br>
+
+<br>
+
+
+
+The motion example was created by rotating a static pose around its
+
+own axis both counter-clockwise and clockwise but use the same
+
+descriptors which introduces ambiguities with respect to the heading
+
+direction in the view-plane.
+
+
+
+The SGP-LVM model created has a five dimensional latent space with two
+
+private directions for each observation space and a single shared
+
+direction. The model is initialised using the NCCA consolidation.
+
+
+
+<p><center><img src="K_sil.png" width="29%"><img src="K_pose.png" width="29%"><br>
+Kernel matrices to which NCCA consolidation is used to initialise the SGP-LVM model.
+</center>
+
+
+<p><center><img src="latent1.png" width="29%"><img src="mode1.png" width="29%"><br>
+Unimodal silhouette. 
+</center>
+
+
+<p><center><img src="latent2.png" width="29%"><img src="mode9_top.png" width="29%"><img src="mode9_bottom.png" width="29%"><br>
+Bi-modal silhouette
+</center></p>
+
+<br>
+<br>
+<h3>SGP-LVM FOLS</h3>
+
+<p><code>
+&gt;&gt; dem_sgplvm_fols
+</code>
+<br>
+<br>
+
+Demo script that generates the toy example shown in Figure 1 in the paper <it> Factorized Orthogonal Latent Spaces, Salzmann et. al. </it>.
+
+<p><center><img src="data.png" width="29%"><img src="observed.png" width="29%"><br>
+Observed data used for the example. Each observed space is the projection of the circle in the left most image onto each separate axis as shown in the right image.
+</center>
+
+<p><center><img src="fols.png" width="29%"><br>
+The resulting embedding after learning a SGPLVM-FOLS model. The data is factorized into a single shared dimension and one single private dimension associated with each observed data space.
+</center>
